@@ -16,7 +16,8 @@ client.setInterval(async () => {
 		const image = valid[Math.floor(Math.random() * valid.length)];
 		await client.send({ files: [image.link] });
 		used.add(image.id);
+		console.log('[IMGUR POSTER] Posted image', image.id);
 	} catch (err) {
-		return; // eslint-disable-line no-useless-return
+		console.error('[IMGUR POSTER]', err);
 	}
 }, time);

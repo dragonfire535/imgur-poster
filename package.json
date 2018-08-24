@@ -1,6 +1,6 @@
 {
 	"name": "imgur-poster",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "Posts images from an Imgur album to a Webhook on an interval.",
 	"main": "Poster.js",
 	"scripts": {
