@@ -17,6 +17,6 @@ client.setInterval(async () => {
 		await client.send({ files: [image.link] });
 		used.add(image.id);
 	} catch (err) {
-		return;
+		return; // eslint-disable-line no-useless-return
 	}
 }, time);
