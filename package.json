@@ -1,0 +1,48 @@
+{
+	"name": "imgur-poster",
+	"version": "1.0.0",
+	"description": "Posts images from an Imgur album to a Webhook on an interval.",
+	"main": "Poster.js",
+	"scripts": {
+		"test": "npm run lint",
+		"lint": "eslint . --ext .js --ext .json",
+		"start": "node Poster.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/dragonfire535/imgur-poster.git"
+	},
+	"keywords": [
+		"bot",
+		"discord",
+		"discord-api",
+		"discord-bot",
+		"discord-js",
+		"imgur",
+		"imgur-api"
+	],
+	"author": "dragonfire535 <danielbodendahl@gmail.com>",
+	"license": "GPL-3.0",
+	"bugs": {
+		"url": "https://github.com/dragonfire535/imgur-poster/issues"
+	},
+	"homepage": "https://github.com/dragonfire535/imgur-poster#readme",
+	"engines": {
+		"node": ">=10.1.0"
+	},
+	"dependencies": {
+		"discord.js": "github:discordjs/discord.js",
+		"node-superfetch": "^0.1.4"
+	},
+	"devDependencies": {
+		"eslint": "^5.4.0",
+		"eslint-config-amber": "^1.1.0",
+		"eslint-plugin-json": "^1.2.1"
+	},
+	"eslintConfig": {
+		"extends": "amber",
+		"plugins": [
+			"json"
+		]
+	}
+}
