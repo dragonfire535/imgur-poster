@@ -1,7 +1,7 @@
 {
 	"name": "imgur-poster",
-	"version": "1.0.1",
-	"description": "Posts images from an Imgur album to a Webhook on an interval.",
+	"version": "1.0.2",
+	"description": "Posts images from an Imgur album to a Discord Webhook on an interval.",
 	"main": "Poster.js",
 	"scripts": {
 		"test": "npm run lint",
@@ -17,7 +17,6 @@
 		"discord",
 		"discord-api",
 		"discord-bot",
-		"discord-js",
 		"imgur",
 		"imgur-api"
 	],
@@ -31,7 +30,6 @@
 		"node": ">=10.1.0"
 	},
 	"dependencies": {
-		"discord.js": "github:discordjs/discord.js",
 		"node-superfetch": "^0.1.4"
 	},
 	"devDependencies": {

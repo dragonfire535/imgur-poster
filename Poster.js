@@ -1,11 +1,9 @@
 const { POSTER_ID, POSTER_TOKEN, POSTER_ALBUM, POSTER_TIME, IMGUR_KEY } = process.env;
-const { WebhookClient } = require('discord.js');
-const client = new WebhookClient(POSTER_ID, POSTER_TOKEN);
 const request = require('node-superfetch');
 const used = new Set();
 const time = Number.parseFloat(POSTER_TIME);
 
-client.setInterval(async () => {
+setInterval(async () => {
 	try {
 		const { body } = await request
 			.get(`https://api.imgur.com/3/album/${POSTER_ALBUM}`)
@@ -14,7 +12,9 @@ client.setInterval(async () => {
 		if (used.size === body.data.images.length) used.clear();
 		const valid = body.data.images.filter(image => !used.has(image.id));
 		const image = valid[Math.floor(Math.random() * valid.length)];
-		await client.send({ files: [image.link] });
+		await request
+			.post(`https://discordapp.com/api/webhooks/${POSTER_ID}/${POSTER_TOKEN}`)
+			.send({ content: image.link });
 		used.add(image.id);
 		console.log('[IMGUR POSTER] Posted image', image.id);
 	} catch (err) {
