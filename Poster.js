@@ -11,8 +11,8 @@ client.setInterval(async () => {
 			.get(`https://api.imgur.com/3/album/${POSTER_ALBUM}`)
 			.set({ Authorization: `Client-ID ${IMGUR_KEY}` });
 		if (!body.data.images.length) return;
-		if (used.size === body.length) used.clear();
-		const valid = body.filter(image => !used.has(image.id));
+		if (used.size === body.data.images.length) used.clear();
+		const valid = body.data.images.filter(image => !used.has(image.id));
 		const image = valid[Math.floor(Math.random() * valid.length)];
 		await client.send({ files: [image.link] });
 		used.add(image.id);
