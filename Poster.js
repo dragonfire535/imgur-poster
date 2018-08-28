@@ -1,4 +1,4 @@
-const { POSTER_ID, POSTER_TOKEN, POSTER_ALBUM, POSTER_TIME, IMGUR_KEY } = process.env;
+const { POSTER_ID, POSTER_TOKEN, POSTER_ALBUM_ID, POSTER_TIME, IMGUR_KEY } = process.env;
 const request = require('node-superfetch');
 const used = new Set();
 const time = Number.parseFloat(POSTER_TIME);
@@ -11,7 +11,7 @@ setInterval(async () => {
 			images = cache;
 		} else {
 			const { body } = await request
-				.get(`https://api.imgur.com/3/album/${POSTER_ALBUM}`)
+				.get(`https://api.imgur.com/3/album/${POSTER_ALBUM_ID}`)
 				.set({ Authorization: `Client-ID ${IMGUR_KEY}` });
 			if (!body.data.images.length) return;
 			if (body.data.images.length === used.size) used.clear();
