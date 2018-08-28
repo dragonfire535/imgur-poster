@@ -2,7 +2,7 @@ const { POSTER_ID, POSTER_TOKEN, POSTER_ALBUM, POSTER_TIME, IMGUR_KEY } = proces
 const request = require('node-superfetch');
 const used = new Set();
 const time = Number.parseFloat(POSTER_TIME);
-const cache = null;
+let cache = null;
 
 setInterval(async () => {
 	try {
